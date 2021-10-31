@@ -1,27 +1,14 @@
-import requests
-from bs4 import BeautifulSoup
+from flask import Flask, jsonify
+from utils.utils import get_latest_articles
+
+app = Flask(__name__)
 
 
-def main():
-    BASE_URL = "https://blog.nicovideo.jp"
-    URL = f"{BASE_URL}/niconews/category/ge_maintenance/"
-    resp = requests.get(URL)
-    soup = BeautifulSoup(resp.content, "html.parser", from_encoding="utf-8")
-    result = soup.find_all("ul", class_="l-main l-main-list2")
-    first_pagination = result[0]
-
-    latest_articles = []
-    links = first_pagination.find_all("a")
-    for i, link in enumerate(links):
-        article = {
-            "index": i,
-            "url": f"{BASE_URL}{link.get('href')}",
-            "title": link.find("p", class_="l-main l-main-list2-title").text,
-            "date": link.find("p", class_="l-main l-main-list2-date").text
-        }
-        latest_articles.append(article)
-    return latest_articles
+@app.route("/", methods=["GET"])
+def index():
+    resp = get_latest_articles()
+    return jsonify(resp)
 
 
 if __name__ == "__main__":
-    print(main())
+    app.run(debug=True)
