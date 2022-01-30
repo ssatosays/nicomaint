@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+
 from utils.utils import get_latest_articles
 
 app = Flask(__name__)
