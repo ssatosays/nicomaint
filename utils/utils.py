@@ -13,13 +13,12 @@ def get_latest_articles():
     latest_articles = []
     links = first_pagination.find_all('a')
     for i, link in enumerate(links):
-        article = {
+        latest_articles.append({
             'index': i,
             'url': f"{BASE_URL}{link.get('href')}",
             'title': link.find('p', class_='l-main l-main-list2-title').text,
             'date': link.find('p', class_='l-main l-main-list2-date').text
-        }
-        latest_articles.append(article)
+        })
     return latest_articles
 
 
