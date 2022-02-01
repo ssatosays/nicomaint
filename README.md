@@ -1,6 +1,7 @@
 # nicomaint
 ニコニコ動画のメンテナンス・障害・復旧を[公式サイト](https://blog.nicovideo.jp/niconews/category/ge_maintenance/)から取得
 
+## 実行結果
 ```
 ssatosays@local(19:59:00)(2) ~ $ curl http://127.0.0.1:5000/ |jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
