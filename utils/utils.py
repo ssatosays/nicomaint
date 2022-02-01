@@ -20,8 +20,8 @@ def _del_sent_articles(latest_articles: list):
     if not os.path.exists(JSON_PATH):
         _update_json(latest_articles)
         return
-    la_titles = [l['title'] for l in latest_articles]
-    rj_titles = [r['title'] for r in _read_json()]
+    la_titles = [row['title'] for row in latest_articles]
+    rj_titles = [row['title'] for row in _read_json()]
     latest = list(set(la_titles) - set(rj_titles))
     if len(latest) > 0:
         _update_json(latest_articles)
