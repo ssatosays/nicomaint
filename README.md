@@ -28,3 +28,9 @@ ssatosays@local(19:59:00)(2) ~ $ curl http://127.0.0.1:5000/ |jq
   }
 ]
 ```
+
+## ニコニコ規約
+> 5 禁止事項  
+> ｢ニコニコ｣のサーバーに過度の負担を及ぼす行為
+
+[ニコニコ規約](https://account.nicovideo.jp/rules/account)より
